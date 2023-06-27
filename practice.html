@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>practice</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        
+       
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      
+    </head>
+    <body>
+        <h1 class="text-center">Hello World</h1>
+        <p id="firstP">firstP<p>paragraph</p>
+
+        <label for='picture'>
+          <img src="https://plus.google.com/photos/114809861514342788109/album/6306090224289882481/6306090221856483314?authkey=CJPV_OKHvczjSw">
+      </label>
+      
+      <form action="demo_form.asp" style='display: none;'>
+          <input type="file" name="pic" accept=".gif,.jpg,.png,.tif|image/*" id='picture'>
+          <input type="submit">
+      </form>
+<script>
+
+var arr =[1,5,1,9,1,8,6]
+var res = [];
+var res1 = [];
+   var res = arr.filter((a,b)=>{
+return (arr.indexOf(a)===b)
+})
+
+const arrmanthra = [{'id':1, 'type': 'external'}, {'id':2}, {'id':3, type: 'internal'}]
+
+
+// arrmanthra.map(e=>{
+//   console.log("task manthra")
+//   console.log(e.type + ","+ e.value)
+
+// })
+console.log(arrmanthra.filter(function(item){
+    return item.type == "external";         
+}));
+ // using new spread operator
+var res1 = [... new Set(arr)]
+
+console.log(res)
+console.log(res1)
+// to know palindrome or not 
+function isPalindrome(str){
+
+   str= str.replace(/\W/g,'').toLowerCase();
+    return (str == str.split('').reverse().join(''))
+}
+//to count the palindrome substrings in a string
+
+
+function countPalindromesInString(s) {
+    let count = 0;  //or s.length if you chose to count single letters as palindrome
+    let subString;
+
+    for (let i = 1; i < s.length; i++) {
+      for(let j = 0; j < s.length - i; j++) {
+        subString = s.substring(j, j+i+1);
+        if(subString === subString.split('').reverse().join('')) {
+            count += 1;
+        }
+      }
+    }
+    return count;
+}
+
+//If we want to count unique palindromes in your string, 
+//we can store the palindromes found in an array and every time we find another one, 
+//we check if it was previously added:
+
+function countPalindromesInString(s) {
+    let subStrings = [];
+
+    for (let i = 0; i < s.length; i++) {
+      for(let j = 0; j < s.length - i; j++) {
+        let subString = s.substring(j, j+i+1);
+        if(subString === subString.split('').reverse().join('') 
+        && !subStrings.includes(subString)) {
+          subStrings.push(subString);
+        }
+      }
+    }
+    return subStrings.length;
+}
+//to reverse the string
+var newstring= "";
+function   isReverse(str){
+
+for(var i = str.length-1; i>=0; i--){
+
+newstring +=  str[i];
+
+}
+console.log(newstring)
+}
+
+isReverse('the sky is blue')
+
+
+function palindrome(str) {
+ var re = /[^A-Za-z0-9]/g;
+ str = str.toLowerCase().replace(re, '');
+ var len = str.length;
+ for (var i = 0; i < len/2; i++) {
+   if (str[i] !== str[len - 1 - i]) {
+       console.log(false)
+       return false;
+   }
+ }
+ console.log(true)
+ return true;
+}
+palindrome("A man, a plan, a canal. Panama");
+
+document.write("This is \a program");
+
+
+//to create new text-node
+
+
+const arr1 = [
+  { id: 1, name: "king" },
+  { id: 2, name: "master" },
+  { id: 3, name: "lisa" },
+  { id: 4, name: "ion" },
+  { id: 5, name: "jim" },
+  { id: 6, name: "gowtham" },
+  { id: 1, name: "jam" },
+  { id: 1, name: "lol" },
+  { id: 2, name: "kwick" },
+  { id: 3, name: "april" },
+  { id: 7, name: "sss" },
+  { id: 8, name: "brace" },
+  { id: 8, name: "peiter" },
+  { id: 5, name: "hey" },
+  { id: 6, name: "mkl" },
+  { id: 9, name: "melast" },
+  { id: 9, name: "imlast" },
+  { id: 10, name: "glow" }
+];
+// to remove duplicate elements in an array
+
+function getUnique(arr1, comp) {
+
+// store the comparison  values in array
+const unique =  arr1.map(e => e[comp])
+
+// store the indexes of the unique objects
+.map((e, i, final) => final.indexOf(e) === i && i)
+
+// eliminate the false indexes & return unique objects
+.filter((e) => arr1[e]).map(e => arr1[e]);
+
+return unique;
+}
+
+console.log(getUnique(arr1,'id'));
+
+function addNode() { var newP = document.createElement("p"); 
+	var textNode = document.createTextNode(" This is a new text node"); 
+    newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP);
+}
+//to remove dupliates in an array;
+let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+let myOrderedArray = myArray.reduce(function (accumulator, currentValue) {
+  if (accumulator.indexOf(currentValue) === -1) {
+    accumulator.push(currentValue)
+  }
+  return accumulator
+},[])
+
+console.log(myOrderedArray)
+
+
+//sum of array elements  output is[9,12,555]
+var numbers = [333, 444, 555];
+
+const addDigits = ()=> numbers.map(
+      num => [...num.toString()].reduce((acc, act) => acc + parseInt(act), 0)
+);
+
+console.log(addDigits(numbers));
+
+
+//The following example returns all prime numbers in the array:
+
+const arrayfilter = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]; 
+
+function isPrime(num) {
+  for (let i = 2; num > i; i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  return num > 1;
+}
+
+console.log(arrayfilter.filter(isPrime)); // [2, 3, 5, 7, 11, 13]
+
+
+var text = "<p><br>Looking for a responsible and challenging position with opportunities to enrich my knowledge and skills contributing to the success of organization and to build a result oriented professional growth.</p>"
+
+ console.log("text to remove p tag"+text.replace( /(<([^>]+)>)/ig, ''))
+ // or we can use below line to remove tags
+
+ console.log(text.replace(/<(.|\n)*?>/g, ''))
+
+
+
+//**************   PRIME NUMBERS *******************//
+ var arr = []
+      var n =3
+      var m =5
+         for (var limit = 1; limit <= 50; limit++) {
+            var a = false;
+            for (var i = 2; i <= limit; i++) {
+               if (limit%i===0 && i!==limit) {
+                  a = true;
+               }
+            }
+            if (a === false) {
+                
+                arr.push(limit)
+               
+            }
+            
+         }
+         document.write("<br>"+arr);
+         
+         
+         
+         function isPrime(num) {
+              var a = true;
+  for (let i = 2; num > i; i++) {
+    if (num % i == 0) {
+          a = false;
+    }
+  }
+   if (a === true) {
+                
+         document.write("yes prime");
+   }
+}
+
+
+isPrime(5)
+      
+
+      console.log("*****")
+      var file1="Sharath python Devoleper.docx";
+var file2 = "Sharath python Devoleper.html";
+let files = [];
+console.log(file1.split("."))
+console.log(file1.split(".docx"))
+files.push(file1,file2)
+console.log(files.length)
+for (var f =0;f<files.length;f++){
+  console.log(files[f])
+}
+var colorArray = ['.st1', '.st2', '.st3', '.st4'];
+        var randomColor = Math.floor(Math.random() * colorArray.length);
+        console.log(colorArray[randomColor]);
+
+        const colours = ["blue", "green", "orange", "purple", "red"];
+  console.log(colours[Math.floor(Math.random() * colours.length)])
+var a = [ '195197','195190' ];
+var b =[  '195197' ]
+
+// let arr = [...a, ...b];
+// let uniqueArr = [...new Set(arr)];
+
+//console.log(uniqueArr);
+var d = a.concat(b)
+var set = new Set(d);
+
+d = Array.from(set);
+
+console.log(d);
+ //to remove duplicates in array
+ 
+ let chars = ['A', 'B', 'A', 'C', 'B'];
+let uniqueChars = [...new Set(chars)];
+
+console.log(uniqueChars)
+
+
+// another method to remove duplicates
+
+//let chars = ['A', 'B', 'A', 'C', 'B'];
+
+let uniqueChars1 = chars.filter((c, index) => {
+    return chars.indexOf(c) === index;
+});
+
+console.log(uniqueChars1);
+
+//To find the duplicate values, you just need to reverse the condition:
+
+//let chars = ['A', 'B', 'A', 'C', 'B'];
+
+let dupChars = chars.filter((c, index) => {
+    return chars.indexOf(c) !== index;
+});
+
+console.log(dupChars);
+
+
+
+//creating objects 
+var a = Object.create(null);
+
+var d = new Object();
+//Using a function constructor
+var Obj = function(name) {
+  this.name = name
+}
+var c = new Obj("hello"); 
+
+
+
+function* flatten(array, depth) {
+  if (depth === undefined) {
+    depth = 1;
+  }
+
+  for (const item of array) {
+    if (Array.isArray(item) && depth > 0) {
+      yield* flatten(item, depth - 1);
+    } else {
+      yield item;
+    }
+  }
+}
+
+const arr41 = [1, 2, [3, 4, [5, 6]]];
+const flattened = [...flatten(arr41, Infinity)];
+// [1, 2, 3, 4, 5, 6]
+String.prototype.giveLydiaPizza = () => {
+  return 'Just give Lydia pizza already!';
+};
+
+const name = 'Lydia';
+
+name.giveLydiaPizza()
+
+
+
+var obj = {fname:'hljhl',lname:'jkj'}
+var obj2 = {...obj}
+var obj3 = Object.assign({},obj)
+
+"1"+1+"1" = 111
+
+1+2+"3"=33
+
+function func1(){
+
+var a =10;
+var b ='';
+function innerFunction(){
+b = a+20;
+console.log(b)
+
+}
+return innerFunction;
+}
+func1();
+
+output ===== 30
+
+
+
+
+null || 1 || undefined
+
+true   -----1
+var obj = {fname:'hljhl',lname:'jkj'}
+const {lname} = obj;
+
+
+
+
+
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty('1');false     ---- true  (corect)
+obj.hasOwnProperty(1); true
+set.has('1'); false
+set.has(1);   true
+
+
+String.prototype.giveLydiaPizza = () => {
+  return 'Just give Lydia pizza already!';
+};
+
+const name = 'Lydia';
+
+name.giveLydiaPizza()
+
+
+not defined
+const foo = () => console.log('First');
+const bar = () => setTimeout(() => console.log('Second'));
+const baz = () => console.log('Third');
+
+bar();
+foo();
+baz();
+
+first 
+third 
+Second
+
+const person = { name: 'Lydia' };
+
+function sayHi(age) {
+  return `${this.name} is ${age}`;
+}
+
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
+
+Lydia is 21
+sayHi()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
